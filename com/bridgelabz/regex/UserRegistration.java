@@ -18,10 +18,25 @@ public class UserRegistration {
 			else
 				System.out.println("Pattern not matched");
 	    }
+		
+		private void lastName() {
+			String lastName;
+			Scanner get = new Scanner(System.in);
+			System.out.println("Enter LastName: \t note:First Latter should capital");
+			lastName = get.next();
+	        String regex = "^[A-Z]{1}[a-z]{2,}$";
+	        Pattern pattern = Pattern.compile(regex);
+	        Matcher matcher = pattern.matcher(lastName);
+	        if (matcher.find())
+				System.out.println("Pattern matched");
+			else
+				System.out.println("Pattern not matched");
+	    }
 		public static void main(String[] args) {
 			System.out.println("Welcome to regex");
 			UserRegistration userRegestration = new UserRegistration();
 			userRegestration.firstName();
+			userRegestration.lastName();
 		}
 	}
 
