@@ -32,11 +32,28 @@ public class UserRegistration {
 			else
 				System.out.println("Pattern not matched");
 	    }
+		
+		private void email() {
+			String email;
+			Scanner get = new Scanner(System.in);
+			System.out.println("Enter LastName: \t note:First Latter should capital");
+			email = get.next();
+			String regex = "^[a-z0-9]{3,}+([_+-.][a-z0-9]{3,}+)*@[a-z0-9]+.[a-z]{2,3}?(.[a-z]{2,3}){0,1}$";
+			Pattern pattern = Pattern.compile(regex);
+			Matcher matcher = pattern.matcher(email);
+			if (matcher.find())
+				System.out.println("Pattern matched");
+			else
+				System.out.println("Pattern not matched");
+		}
+		
 		public static void main(String[] args) {
 			System.out.println("Welcome to regex");
 			UserRegistration userRegestration = new UserRegistration();
 			userRegestration.firstName();
 			userRegestration.lastName();
+			userRegestration.email();
+			
 		}
 	}
 
